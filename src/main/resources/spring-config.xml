@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="addStrategy" class="com.example.presentation.strategy.AddStrategy"/>
+    <bean id="multiplyStrategy" class="com.example.presentation.strategy.MultiplyStrategy"/>
+
+    <bean id="calculator" class="com.example.presentation.strategy.Calculator">
+        <constructor-arg ref="addStrategy"/>
+    </bean>
+
+    <bean id="calculationController" class="com.example.presentation.strategy.CalculationController">
+        <constructor-arg ref="calculator"/>
+    </bean>
+</beans>
